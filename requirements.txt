@@ -1,0 +1,31 @@
+# Python >= 3.10 (tested on 3.13). Exact tested versions: requirements-lock.txt
+# Install:  bash setup.sh      (or: pip install -r requirements.txt)
+
+# --- EFS pipeline (lexicons, one-to-one claim aligner, six-type classifier) ---
+numpy>=1.26
+pandas>=2.0
+pyarrow>=15.0          # parquet samples
+scipy>=1.11            # Hungarian assignment, statistical tests
+statsmodels>=0.14      # regressions of Appendix F.4
+tqdm>=4.66
+
+# --- generation, token probe, learned detector (GPU needed for these only) ---
+torch>=2.4
+transformers>=4.45
+accelerate>=0.30       # required by device_map="auto" when loading models
+scikit-learn>=1.4      # detector metrics
+
+# --- baseline metrics compared with EFS (Section 6.3 / Figure 2) ---
+rouge-score>=0.1.2
+bert-score>=0.3.12
+
+# --- rebuilding the public samples (Multi-LexSum / SciTLDR / PubMedQA) ---
+datasets>=2.20
+
+# --- hosted models and API judges (scripts/hosted, scripts/judges, scripts/decision, scripts/validation/multi_annotator.py) ---
+openai>=1.40           # Azure OpenAI, and vLLM's OpenAI-compatible server
+anthropic>=0.40        # Claude judge / annotator
+
+# --- figures and tests ---
+matplotlib>=3.8
+pytest>=8.0

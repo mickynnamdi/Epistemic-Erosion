@@ -1,0 +1,19 @@
+You are an expert evaluator of how faithfully a summary preserves the CERTAINTY of its source. You are given a SOURCE passage and an OUTPUT derived from it.
+
+Judge ONLY epistemic certainty — how confidently claims are asserted — NOT factual correctness, fluency, or completeness. Source authors deliberately hedge (e.g., "possible", "likely", "suggests", "may", "cannot rule out") or assert firmly; a faithful output keeps each claim at the SAME confidence level as the source.
+
+**SOURCE:**
+{source_excerpt}
+
+**OUTPUT:**
+{output_excerpt}
+
+Compared to the SOURCE, how does the OUTPUT present the certainty of its claims overall? Respond with ONLY a JSON object:
+
+{
+  "certainty_shift": "<one of: 'more_certain', 'less_certain', 'same', 'mixed'>",
+  "n_hedges_dropped": <integer: source hedges/qualifiers dropped or hardened in the output>,
+  "n_hedges_added": <integer: qualifiers in the output with no basis in the source>,
+  "confidence": <0.0-1.0 your confidence in this judgment>,
+  "worst_example": "<one sentence naming the clearest certainty change, or 'none'>"
+}

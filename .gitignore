@@ -1,0 +1,32 @@
+# Python / editors
+__pycache__/
+*.py[co]
+.pytest_cache/
+venv/
+.venv/
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets (API keys, local paths)
+.env
+
+# Restricted data: PhysioNet credentialed access. Never commit anything derived from it.
+mimic/
+radgraph/
+data/*.parquet
+data/*.csv
+data/annotation_sheets/
+
+# Downloaded public corpora, generations, scores, checkpoints (all user-local)
+data/external/
+outputs/
+results/
+models/
+*.safetensors
+*.pt
+*.bin
+
+# Cluster logs
+slurm_*.out
+*.err
